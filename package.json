@@ -55,11 +55,10 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "start": "gatsby develop",
     "build": "gatsby build --prefix-paths",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
-    "develop": "gatsby develop -p 8080",
+    "start": "gatsby develop -p 8080",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
