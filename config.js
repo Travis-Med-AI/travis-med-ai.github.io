@@ -8,7 +8,7 @@ const config = {
     trailingSlash: false,
   },
   header: {
-    logo: 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/brand.svg',
+    logo: 'content/logo.svg',
     logoLink: site_url,
     title:
       "<a href='https://hasura.io/learn/'><img class='img-responsive' src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg' alt='Learn logo' /></a>",
