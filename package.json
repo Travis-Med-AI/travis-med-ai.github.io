@@ -60,7 +60,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
     "start": "gatsby develop -p 8080",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d docs"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
