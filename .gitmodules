@@ -1,3 +1,0 @@
-[submodule "med-ai"]
-	path = content/med-ai
-	url = git@github.com:Travis-Med-AI/med-ai.git

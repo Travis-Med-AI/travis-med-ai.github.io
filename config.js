@@ -1,5 +1,7 @@
-const site_url = 'https://https://travis-med-ai.github.io/'
+const site_url = 'https://travis-med-ai.github.io/'
 const github_url = 'https://github.com/Travis-Med-AI/med-ai'
+const title = 'Travis Med AI'
+const icon = 'https://raw.githubusercontent.com/Travis-Med-AI/med-ai/jacob/logo.svg'
 const config = {
   gatsby: {
     pathPrefix: '/',
@@ -8,27 +10,13 @@ const config = {
     trailingSlash: false,
   },
   header: {
-    logo: 'content/logo.svg',
+    logo: icon,
     logoLink: site_url,
     title:
-      "<a href='https://hasura.io/learn/'><img class='img-responsive' src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg' alt='Learn logo' /></a>",
+      title,
     githubUrl: github_url,
     helpUrl: '',
     tweetText: '',
-    // social: `<li>
-		//     <a href="https://twitter.com/hasurahq" target="_blank" rel="noopener">
-		//       <div class="twitterBtn">
-		//         <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg' alt={'Discord'}/>
-		//       </div>
-		//     </a>
-		//   </li>
-		// 	<li>
-		//     <a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener">
-		//       <div class="discordBtn">
-		//         <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg' alt={'Discord'}/>
-		//       </div>
-		//     </a>
-		//   </li>`,
     links: [{ text: '', link: '' }],
     search: {
       enabled: false,
@@ -41,29 +29,30 @@ const config = {
   sidebar: {
     forcedNavOrder: [
       '/introduction', // add trailing slash if enabled above
+      '/quickstart',
       '/codeblock',
     ],
     collapsedNav: [
       '/codeblock', // add trailing slash if enabled above
     ],
-    links: [{ text: 'Hasura', link: 'https://hasura.io' }],
+    links: [{ text: title, link: site_url }],
     frontline: false,
     ignoreIndex: true,
     title:
-      "<a href='https://hasura.io/learn/'>graphql </a><div class='greenCircle'></div><a href='https://hasura.io/learn/graphql/react/introduction/'>react</a>",
+      title,
   },
   siteMetadata: {
-    title: 'Gatsby Gitbook Boilerplate | Hasura',
-    description: 'Documentation built with mdx. Powering hasura.io/learn ',
+    title: title,
+    description: 'Simplifying AI in the Clinical Setting',
     ogImage: null,
-    docsLocation: 'https://github.com/hasura/gatsby-gitbook-boilerplate/tree/master/content',
-    favicon: 'https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg',
+    docsLocation: 'https://github.com/Travis-Med-AI/travis-med-ai.github.io/tree/master/content',
+    favicon: icon,
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
     manifest: {
-      name: 'Gatsby Gitbook Starter',
-      short_name: 'GitbookStarter',
+      name: 'Travis Med AI',
+      short_name: 'TravisAI',
       start_url: '/',
       background_color: '#6b37bf',
       theme_color: '#6b37bf',

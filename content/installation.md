@@ -1,7 +1,7 @@
 ---
-title: "Introduction"
-metaTitle: "Introduction"
-metaDescription: "An introduction to basic workflow of Travis Med AAn introduction to basic workflow of Travis Med AI"
+title: "Installation"
+metaTitle: "Istallation"
+metaDescription: "How to Install"
 ---
 
 Some introduction text. Lists out all the headings from h1 to h6. Easy to customise.
