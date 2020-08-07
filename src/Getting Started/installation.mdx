@@ -1,0 +1,71 @@
+---
+name: Installation
+menu: Getting Started
+route: /installation
+---
+
+# Installation
+
+## Prerequisites
+
+### Docker
+
+- Install docker from [here](https://docs.docker.com/engine/install/ubuntu/)
+    - Make sure to add user to the docker group ([more info](https://docs.docker.com/engine/install/linux-postinstall/))
+    
+### Nvidia
+
+#### Setup Nvidia Runtime
+
+- Install nvidia drivers
+- Install nvidia runtime using commands below (more info [here](https://github.com/NVIDIA/nvidia-docker#quickstart))
+
+```  bash
+#### Add the package repositories
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
+
+- Install nvidia-container-runtime
+
+``` bash
+sudo apt install nvidia-container-runtime 
+```
+
+- Add the following file at ```/etc/docker/daemon.json```
+``` json
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+```
+
+- Test that the setup is working with the following command
+
+``` bash
+docker run --runtime=nvidia nvidia/cuda:10.0-base nvidia-smi
+```
+## Clone repository
+
+``` bash
+git clone git@github.com:tclarke104/med-ai --recursive-submodules # download
+cd med-ai/med-ai-model
+chmod +x ./build.sh
+./build.sh
+```
+
+## Start project
+
+``` bash
+cd med-ai
+chmod +x ./start.sh
+./start.sh
+```
