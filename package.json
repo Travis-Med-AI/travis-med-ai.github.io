@@ -33,6 +33,11 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet-async": "^1.0.4",
-    "swagger-ui": "^3.31.1"
+    "algoliasearch": "^3.35.1",
+    "dotenv": "^8.2.0",
+    "gatsby-plugin-algolia": "^0.5.0",
+    "react-instantsearch-dom": "^6.0.0",
+    "styled-components": "^4.4.1",
+    "styled-icons": "^9.0.1"
   }
 }

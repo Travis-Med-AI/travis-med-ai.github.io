@@ -2,6 +2,7 @@
 logs
 *.log
 .docz/
+.env
 
 # Runtime data
 pids
