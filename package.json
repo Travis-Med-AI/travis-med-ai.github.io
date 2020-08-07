@@ -1,29 +1,38 @@
 {
+  "name": "travis-med-ai-website",
   "private": true,
-  "name": "docz-example-typescript",
+  "description": "Documentation for Travis Med AI",
   "version": "2.0.0-rc.41",
-  "license": "MIT",
-  "files": [
-    "src/",
-    "doczrc.js",
-    "tsconfig.json",
-    "package.json"
+  "keywords": [
+    "gatsby",
+    "docz"
   ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Travis-Med-AI/travis-med-ai.github.io/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Travis-Med-AI/travis-med-ai.github.io.git"
+  },
   "scripts": {
-    "dev": "docz dev",
-    "build": "docz build",
-    "deploy": "docz build --prefix-paths && gh-pages -d public"
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.14",
-    "@emotion/styled": "^10.0.14",
-    "docz": "latest",
+    "docz": "^2.0.0-rc.76",
+    "gatsby": "^2.13.73",
+    "gatsby-plugin-offline": "^2.2.7",
+    "gatsby-plugin-sharp": "^2.2.18",
+    "gatsby-theme-docz": "latest",
+    "gatsby-transformer-sharp": "^2.2.7",
     "gh-pages": "^3.1.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  },
-  "devDependencies": {
-    "@types/react": "^16.8.23",
-    "@types/react-dom": "^16.8.4"
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet-async": "^1.0.4",
+    "swagger-ui": "^3.31.1"
   }
 }
