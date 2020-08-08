@@ -16,9 +16,9 @@ export const Header = props => {
   const { edit = true, ...doc } = useCurrentDoc()
   const [colorMode, setColorMode] = useColorMode()
 
-  const toggleColorMode = () => {
-    setColorMode(colorMode === 'light' ? 'dark' : 'light')
-  }
+  // const toggleColorMode = () => {
+  //   setColorMode(colorMode === 'light' ? 'dark' : 'light')
+  // }
 
   return (
     <div sx={styles.wrapper} data-testid="header">
@@ -28,10 +28,9 @@ export const Header = props => {
         </button>
       </Box>
       <div sx={styles.innerContainer}>
-        <Logo />
+        {/* <Logo /> */}
 
         <Flex>
-          <Search />
           {/* {showDarkModeSwitch && (
             <button sx={styles.headerButton} onClick={toggleColorMode}>
               <Sun size={15} />
@@ -49,6 +48,7 @@ export const Header = props => {
               </a>
             </Box>
           )}
+          <Search />
         </Flex>
         {showMarkdownEditButton && edit && doc.link && (
           <a
