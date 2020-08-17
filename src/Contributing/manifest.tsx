@@ -74,7 +74,13 @@ export const ParamTable = () => {
                     item.typeString
                   )}
                 </StyledTableCell>
-                <StyledTableCell>{item.description}</StyledTableCell>
+                <StyledTableCell>{item.description+ " See "}  
+                  {docEnums
+                    .map((x) => x.typeString)
+                    .includes(item.typeString) ? (<div>
+                    <a href={"#" + item.typeString}>{item.typeString}</a> below.</div>): ""
+                  }
+                </StyledTableCell>
                 <StyledTableCell>
                   {item.required ? <Check size="15" /> : <Cross size="15" />}
                 </StyledTableCell>
@@ -96,7 +102,7 @@ export const EnumerableTable = (property: DocEnum) => {
         <Table size="small">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Enumtype</StyledTableCell>
+              <StyledTableCell>Enum Value</StyledTableCell>
               <StyledTableCell>Description</StyledTableCell>
             </TableRow>
           </TableHead>
