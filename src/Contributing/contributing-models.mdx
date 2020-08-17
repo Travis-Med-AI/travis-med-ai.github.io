@@ -1,24 +1,47 @@
 ---
-name: Contributing Models
+name: b) Contributing Models
 route: /contributing/contributing-models
 menu: 4. Contributing
 ---
 
-@import url("https://google.com")
+import * as Components from "./manifest.tsx";
+import { Playground, Props } from "docz";
 
 # Contributing Models
 
-All model manifests are stored at our [models-repository](https://github.com/Travis-Med-AI/model-registry)
-
-New models should be submitted as a pull request with the following structure:
+New models can be added to travis med ai by submitting a pull request to our [models-repository](https://github.com/Travis-Med-AI/model-registry) in the following format:
 
 ```
 model-title/
     manifest.json
 ```
 
+At travis med ai, all models are hosted on [dockerhub](https://hub.docker.com/) as docker images. 
+Your manifest.json file will contain all pertinent information for integrating your model into our system (i.e. location of the docker image, display name, etc.). More information on how to structure a manifest.json file is [below](#manifest-properties)
 
-Manifest should adhere to the format found [here]()
+## Manifest Properties
 
+Your manifest should contain the following information:
 
-TODO talk about how to add models.
+<Components.ParamTable />
+
+## Example Manifest
+
+The following is an example of a completed manifest:
+
+```json
+// manifest.json
+{
+  "tag": "tclarke104/ich-model:0.1",
+  "displayName": "Intracranial Hemorrhage Detection",
+  "input": "StudyType.CT",
+  "modality": "Modality.CT",
+  "inputType": "ModelInputs.DICOM",
+  "output": "ModelOutputs.classProbabilities",
+  "hasImageOutput": false
+}
+```
+
+## Enums
+
+<Components.EnumsBlock />

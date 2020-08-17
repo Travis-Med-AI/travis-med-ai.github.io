@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx, Box, Flex, useColorMode } from 'theme-ui'
+import { jsx, Box, Flex } from 'theme-ui'
 import { useConfig, useCurrentDoc } from 'docz'
 
 import * as styles from 'gatsby-theme-docz/src/components/Header/styles'
-import { Edit, Menu, Sun, Github } from 'gatsby-theme-docz/src/components/Icons'
+import { Edit, Menu, Github } from 'gatsby-theme-docz/src/components/Icons'
 import { Logo } from 'gatsby-theme-docz/src/components/Logo'
 import Search from './Search/'
 
@@ -14,7 +14,7 @@ export const Header = props => {
     themeConfig: {showMarkdownEditButton },
   } = useConfig()
   const { edit = true, ...doc } = useCurrentDoc()
-  const [colorMode, setColorMode] = useColorMode()
+  // const [colorMode, setColorMode] = useColorMode()
 
   // const toggleColorMode = () => {
   //   setColorMode(colorMode === 'light' ? 'dark' : 'light')
@@ -28,7 +28,7 @@ export const Header = props => {
         </button>
       </Box>
       <div sx={styles.innerContainer}>
-        {/* <Logo /> */}
+        <Logo />
 
         <Flex>
           {/* {showDarkModeSwitch && (
@@ -36,6 +36,7 @@ export const Header = props => {
               <Sun size={15} />
             </button>
           )} */}
+          <Search />
           {repository && (
             <Box sx={{ mr: 2 }}>
               <a
@@ -48,7 +49,6 @@ export const Header = props => {
               </a>
             </Box>
           )}
-          <Search />
         </Flex>
         {showMarkdownEditButton && edit && doc.link && (
           <a

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { Search } from 'gatsby-theme-docz/src/components/Icons'
-import { Algolia } from 'styled-icons/fa-brands/Algolia'
+import { Algolia } from '@styled-icons/fa-brands/Algolia'
 
 export const Root = styled.div`
   position: relative;
