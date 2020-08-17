@@ -74,10 +74,10 @@ export const ParamTable = () => {
                     item.typeString
                   )}
                 </StyledTableCell>
-                <StyledTableCell>{item.description+ " See "}  
+                <StyledTableCell>{item.description}  
                   {docEnums
                     .map((x) => x.typeString)
-                    .includes(item.typeString) ? (<div>
+                    .includes(item.typeString) ? (<div> See
                     <a href={"#" + item.typeString}>{item.typeString}</a> below.</div>): ""
                   }
                 </StyledTableCell>
