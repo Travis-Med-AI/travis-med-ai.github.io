@@ -77,7 +77,7 @@ export const ParamTable = () => {
                 <StyledTableCell>{item.description}  
                   {docEnums
                     .map((x) => x.typeString)
-                    .includes(item.typeString) ? (<div> See
+                    .includes(item.typeString) ? (<div> See 
                     <a href={"#" + item.typeString}>{item.typeString}</a> below.</div>): ""
                   }
                 </StyledTableCell>
