@@ -3,6 +3,9 @@ export default {
   dest: '/public',
   repository:'https://github.com/Travis-Med-AI/travis-med-ai.github.io',
   branch:'master',
-  typescript: true
+  typescript: true,
+  ignore: [
+    'README.md'
+  ]
 
 }
