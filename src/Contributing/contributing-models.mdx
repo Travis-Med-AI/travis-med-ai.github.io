@@ -72,11 +72,52 @@ CMD python runner.py
 ```
 - This installs redis, copies the required files from the base image, and adds your source gcdoe to the docker image
 
+An example Dockerfile is below:
+```
+FROM tclarke104/ai-model-base:0.1 as model
+FROM tensorflow/tensorflow:2.0.0-gpu-py3
+
+# Install dependencies
+RUN pip install pydicom scikit-image medaimodels
+
+# DONT EDIT THIS SECTION
+# add current directory to container
+RUN pip install redis
+COPY --from=model /opt/runner /opt
+WORKDIR /opt
+ADD . /opt/
+CMD python runner.py
+```
+
 ### main.py
 
 - All models must have a main.py file in the root of the project.
 - Must have a function called ```evaluate_model``` that takes a single parameter of type List[str]
   - The parameter is a list of paths to the locations of the DICOMDIR directories on the filesystem
+
+Example main.py
+```
+from tensorflow.keras.models import load_model
+from medaimodels import ModelOutput
+import numpy as np
+
+def evaluate(img):
+    CATEGORIES = ["Abd_Xray", "Frontal_CXR", "Lateral_CXR", "MSK_Xray"]
+    model = load_model('{path_to_saved_model}')
+
+    scores = model.predict(img)
+    output = [ModelOutput(display=CATEGORIES[np.argmax(score)]) for score in scores]
+
+    return output
+
+def evaluate_model(files):
+    # calls custom preprocess function that loads images and does preprocessing
+    preprocessed = preprocess(files)
+
+    study_type = evaluate(preprocessed)
+
+    return study_type
+```
 
 ### I/O from containers
 
