@@ -45,3 +45,46 @@ The following is an example of a completed manifest:
 ## Enums
 
 <Components.EnumsBlock />
+
+## Building a model
+
+Building a model is simple! Because docker package all of your dependencies, converting your existing model requires just a few steps.
+
+### The Dockerfile
+
+The dockerfile is located at the root of the project and contains the image build commands
+
+- The dockerfile for a model can be organized into 3 sections.
+1. The FROM imports
+- This section must include the following line
+- ```FROM tclarke104/ai-model-base:0.1 as model```
+2. Your custom build commands
+- This section is where you do any COPY or RUN commands that are required for building your project.
+3. The AI build commands
+- This section should not be edited and contains the following
+```
+# DONT EDIT THIS SECTION
+RUN pip install redis
+COPY --from=model /opt/runner /opt
+WORKDIR /opt
+ADD . /opt/
+CMD python runner.py
+```
+- This installs redis, copies the required files from the base image, and adds your source gcdoe to the docker image
+
+### main.py
+
+- All models must have a main.py file in the root of the project.
+- Must have a function called ```evaluate_model``` that takes a single parameter of type List[str]
+  - The parameter is a list of paths to the locations of the DICOMDIR directories on the filesystem
+
+### I/O from containers
+
+- The base docker image ```tclarke104/ai-model-base``` manages running the model and communication with the AI runner
+- Inputs:
+  - Inputs to the containers are a list of filepaths to DICOMDIR directories
+  - The DICOMDIR format consists of a DICOMDIR file at the root and a directory containing the dicoms from a study
+    - This was chosen because it is a standardized structure and consistent between multi instance and single instance studies
+- Outputs:
+  - The output of a container is a list of objects of the class ModelOutput
+  - ModelOuput can be found in the medaimodels pip package
