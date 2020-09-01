@@ -62,7 +62,8 @@ The dockerfile is located at the root of the project and contains the image buil
 - This section is where you do any COPY or RUN commands that are required for building your project.
 3. The AI build commands
 - This section should not be edited and contains the following
-```
+
+``` Dockerfile
 # DONT EDIT THIS SECTION
 RUN pip install redis
 COPY --from=model /opt/runner /opt
@@ -73,7 +74,7 @@ CMD python runner.py
 - This installs redis, copies the required files from the base image, and adds your source gcdoe to the docker image
 
 An example Dockerfile is below:
-```
+``` Dockerfile
 FROM tclarke104/ai-model-base:0.1 as model
 FROM tensorflow/tensorflow:2.0.0-gpu-py3
 
@@ -96,7 +97,7 @@ CMD python runner.py
   - The parameter is a list of paths to the locations of the DICOMDIR directories on the filesystem
 
 Example main.py
-```
+``` python
 from tensorflow.keras.models import load_model
 from medaimodels import ModelOutput
 import numpy as np
@@ -121,7 +122,7 @@ def evaluate_model(files):
 
 ### I/O from containers
 
-- The base docker image ```tclarke104/ai-model-base``` manages running the model and communication with the AI runner
+- The base docker image `tclarke104/ai-model-base` manages running the model and communication with the AI runner
 - Inputs:
   - Inputs to the containers are a list of filepaths to DICOMDIR directories
   - The DICOMDIR format consists of a DICOMDIR file at the root and a directory containing the dicoms from a study
